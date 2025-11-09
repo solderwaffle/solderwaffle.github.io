@@ -35,7 +35,7 @@
     }
 
     button {
-      background-color: #b2e6b2;
+      background-color: #b2e6b2; /* pastel green */
       color: #222;
       border: none;
       padding: 12px 26px;
@@ -51,7 +51,8 @@
     }
 
     .dont-click-btn {
-      background-color: #ffb3b3;
+      background-color: #ffb3b3; /* soft red */
+      color: #222;
     }
 
     .dont-click-btn:hover {
@@ -61,13 +62,13 @@
     #funnyImage {
       display: none;
       margin-top: 20px;
+      animation: fadeIn 0.6s ease;
     }
 
     #funnyImage img {
       max-width: 350px;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      transition: opacity 0.6s ease;
     }
 
     footer {
@@ -76,13 +77,18 @@
       background-color: #e0f2e0;
       color: #555;
     }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
   </style>
 </head>
 <body>
 
   <header>
     <h1>icontrev</h1>
-    <p>Welcome to my corner of the internet.</p>
+    <p>Welcome to my website.</p>
   </header>
 
   <div class="button-container">
@@ -91,7 +97,7 @@
   </div>
 
   <div id="funnyImage">
-    <img src="cat-underwater.png" alt="Funny cat under water" id="catImg">
+    <img src="cat-underwater.png" alt="Wet cat looking betrayed">
   </div>
 
   <footer>
@@ -101,15 +107,7 @@
   <script>
     function showImage() {
       const imgDiv = document.getElementById("funnyImage");
-      const img = document.getElementById("catImg");
-
-      if (imgDiv.style.display === "none" || imgDiv.style.display === "") {
-        imgDiv.style.display = "block";
-        img.style.opacity = 1;
-      } else {
-        img.style.opacity = 0;
-        setTimeout(() => { imgDiv.style.display = "none"; }, 400);
-      }
+      imgDiv.style.display = imgDiv.style.display === "block" ? "none" : "block";
     }
   </script>
 </body>
